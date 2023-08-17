@@ -1,0 +1,206 @@
+Connected to Dynamips VM "R1" (ID 1, type c3725) - Console port
+Press ENTER to get the prompt.
+hernet0/0 from 10.0.0.1
+*Mar  1 00:20:52.443: OSPF: Send hello to 224.0.0.5 area 0 on Serial0/0 from 10.                                                                           0.123.241
+R1#
+*Mar  1 00:20:54.403: OSPF: Rcv hello from 10.0.30.1 area 0 from FastEthernet0/1                                                                            10.0.123.246
+*Mar  1 00:20:54.403: OSPF: End of hello processing
+R1#
+*Mar  1 00:20:58.811: OSPF: Rcv hello from 10.0.20.1 area 0 from Serial0/0 10.0.                                                                           123.242
+*Mar  1 00:20:58.811: OSPF: End of hello processing
+R1#
+*Mar  1 00:21:01.567: OSPF: Send hello to 224.0.0.5 area 0 on FastEthernet0/1 fr                                                                           om 10.0.123.245
+*Mar  1 00:21:02.443: OSPF: Send hello to 224.0.0.5 area 0 on FastEthernet0/0 fr                                                                           om 10.0.0.1
+*Mar  1 00:21:02.443: OSPF: Send hello to 224.0.0.5 area 0 on Serial0/0 from 10.                                                                           0.123.241
+R1#
+*Mar  1 00:21:04.983: OSPF: Rcv hello from 10.0.30.1 area 0 from FastEthernet0/1                                                                            10.0.123.246
+*Mar  1 00:21:04.983: OSPF: End of hello processing
+R1#
+*Mar  1 00:21:09.159: OSPF: Rcv hello from 10.0.20.1 area 0 from Serial0/0 10.0.                                                                           123.242
+*Mar  1 00:21:09.159: OSPF: End of hello processing
+R1#
+*Mar  1 00:21:11.567: OSPF: Send hello to 224.0.0.5 area 0 on FastEthernet0/1 fr                                                                           om 10.0.123.245
+*Mar  1 00:21:12.443: OSPF: Send hello to 224.0.0.5 area 0 on FastEthernet0/0 fr                                                                           om 10.0.0.1
+*Mar  1 00:21:12.443: OSPF: Send hello to 224.0.0.5 area 0 on Serial0/0 from 10.                                                                           0.123.241
+R1#
+*Mar  1 00:21:15.535: OSPF: Rcv hello from 10.0.30.1 area 0 from FastEthernet0/1                                                                            10.0.123.246
+*Mar  1 00:21:15.535: OSPF: End of hello processing
+R1#no debug
+% Type "debug ?" for a list of subcommands
+R1#
+*Mar  1 00:21:20.043: OSPF: Rcv hello from 10.0.20.1 area 0 from Serial0/0 10.0.                                                                           123.242
+*Mar  1 00:21:20.043: OSPF: End of hello processing
+R1#
+*Mar  1 00:21:21.567: OSPF: Send hello to 224.0.0.5 area 0 on FastEthernet0/1 fr                                                                           om 10.0.123.245
+*Mar  1 00:21:22.443: OSPF: Send hello to 224.0.0.5 area 0 on FastEthernet0/0 fr                                                                           om 10.0.0.1
+*Mar  1 00:21:22.443: OSPF: Send hello to 224.0.0.5 area 0 on Serial0/0 from 10.                                                                           0.123.241
+R1#no de
+*Mar  1 00:21:26.939: OSPF: Rcv hello from 10.0.30.1 area 0 from FastEthernet0/1                                                                            10.0.123.246
+*Mar  1 00:21:26.939: OSPF: End of hello processing
+R1#no debug ip ospf
+*Mar  1 00:21:31.315: OSPF: Rcv hello from 10.0.20.1 area 0 from Serial0/0 10.0.                                                                           123.242
+*Mar  1 00:21:31.319: OSPF: End of hello processing
+*Mar  1 00:21:31.567: OSPF: Send hello to 224.0.0.5 area 0 on FastEthernet0/1 fr                                                                           om 10.0.123.245
+R1#no debug ip ospf
+*Mar  1 00:21:32.443: OSPF: Send hello to 224.0.0.5 area 0 on FastEthernet0/0 fr                                                                           om 10.0.0.1
+*Mar  1 00:21:32.443: OSPF: Send hello to 224.0.0.5 area 0 on Serial0/0 from 10.                                                                           0.123.241
+R1#no debug ip ospf events
+OSPF events debugging is off
+R1#show ip ospf neigh detail
+ Neighbor 10.0.30.1, interface address 10.0.123.246
+    In the area 0 via interface FastEthernet0/1
+    Neighbor priority is 1, State is FULL, 6 state changes
+    DR is 10.0.123.246 BDR is 10.0.123.245
+    Options is 0x52
+    LLS Options is 0x1 (LR)
+    Dead timer due in 00:00:38
+    Neighbor is up for 00:04:25
+    Index 2/2, retransmission queue length 0, number of retransmission 1
+    First 0x0(0)/0x0(0) Next 0x0(0)/0x0(0)
+    Last retransmission scan length is 1, maximum is 1
+    Last retransmission scan time is 0 msec, maximum is 0 msec
+ Neighbor 10.0.20.1, interface address 10.0.123.242
+    In the area 0 via interface Serial0/0
+    Neighbor priority is 0, State is FULL, 6 state changes
+    DR is 0.0.0.0 BDR is 0.0.0.0
+    Options is 0x52
+    LLS Options is 0x1 (LR)
+    Dead timer due in 00:00:30
+    Neighbor is up for 00:09:48
+    Index 1/1, retransmission queue length 0, number of retransmission 2
+    First 0x0(0)/0x0(0) Next 0x0(0)/0x0(0)
+    Last retransmission scan length is 1, maximum is 1
+    Last retransmission scan time is 0 msec, maximum is 0 msec
+R1#
+R1#show ip ospf border-routers
+
+OSPF Process 88 internal Routing Table
+
+Codes: i - Intra-area route, I - Inter-area route
+
+i 10.0.40.1 [2] via 10.0.123.246, FastEthernet0/1, ABR, Area 0, SPF 15
+i 10.0.20.1 [2] via 10.0.123.246, FastEthernet0/1, ABR, Area 0, SPF 15
+R1#show run
+Building configuration...
+
+Current configuration : 1413 bytes
+!
+version 12.3
+service timestamps debug datetime msec
+service timestamps log datetime msec
+no service password-encryption
+!
+hostname R1
+!
+boot-start-marker
+boot-end-marker
+!
+!
+no aaa new-model
+ip subnet-zero
+no ip icmp rate-limit unreachable
+ip tcp synwait-time 5
+!
+!
+no ip domain lookup
+!
+ip cef
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+interface Loopback0
+ ip address 10.0.20.1 255.255.255.252
+ shutdown
+!
+interface FastEthernet0/0
+ ip address 10.0.0.1 255.255.255.0
+ duplex auto
+ speed auto
+!
+interface Serial0/0
+ ip address 10.0.123.241 255.255.255.252
+ clockrate 14400
+!
+interface FastEthernet0/1
+ ip address 10.0.123.245 255.255.255.252
+ duplex auto
+ speed auto
+!
+interface Serial0/1
+ no ip address
+ shutdown
+ clockrate 2000000
+!
+interface Serial0/2
+ no ip address
+ shutdown
+ clockrate 2000000
+!
+interface Serial0/3
+ no ip address
+ shutdown
+ clockrate 2000000
+!
+interface FastEthernet1/0
+ no ip address
+ shutdown
+ duplex auto
+ speed auto
+!
+interface FastEthernet2/0
+ no ip address
+ shutdown
+ duplex auto
+ speed auto
+!
+router ospf 88
+ log-adjacency-changes
+ network 10.0.0.0 0.0.255.255 area 0
+!
+router rip
+ version 2
+ network 10.0.0.0
+!
+no ip http server
+no ip http secure-server
+ip classless
+!
+!
+no cdp log mismatch duplex
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+line con 0
+ exec-timeout 0 0
+ privilege level 15
+ logging synchronous
+line aux 0
+ exec-timeout 0 0
+ privilege level 15
+ logging synchronous
+line vty 0 4
+ login
+!
+end

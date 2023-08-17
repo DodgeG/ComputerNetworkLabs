@@ -1,0 +1,202 @@
+Connected to Dynamips VM "R2" (ID 2, type c3725) - Console port
+Press ENTER to get the prompt.
+ - IS-IS inter area, * - candidate default, U - per-user static route
+       o - ODR, P - periodic downloaded static route
+
+Gateway of last resort is not set
+
+     10.0.0.0/8 is variably subnetted, 11 subnets, 4 masks
+O IA    10.1.1.0/24 [110/3] via 10.0.123.252, 00:01:02, FastEthernet1/0
+O       10.0.0.0/24 [110/3] via 10.0.123.250, 00:01:22, FastEthernet1/0
+C       10.1.0.0/24 is directly connected, FastEthernet0/1
+C       10.0.1.0/24 is directly connected, FastEthernet0/0
+C       10.0.20.0/30 is directly connected, Loopback0
+O       10.0.40.1/32 [110/2] via 10.0.123.252, 00:01:22, FastEthernet1/0
+O       10.0.60.1/32 [110/2] via 10.0.123.251, 00:01:22, FastEthernet1/0
+O IA    10.1.50.1/32 [110/3] via 10.0.123.252, 00:01:07, FastEthernet1/0
+C       10.0.123.240/30 is directly connected, Serial0/0
+O       10.0.123.244/30 [110/2] via 10.0.123.250, 00:01:27, FastEthernet1/0
+C       10.0.123.248/29 is directly connected, FastEthernet1/0
+R2#show ip ospf database
+
+            OSPF Router with ID (10.0.20.1) (Process ID 88)
+
+                Router Link States (Area 0)
+
+Link ID         ADV Router      Age         Seq#       Checksum Link count
+10.0.20.1       10.0.20.1       1150        0x80000004 0x00900F 5
+10.0.30.1       10.0.30.1       125         0x80000006 0x003C96 2
+10.0.40.1       10.0.40.1       481         0x80000003 0x00691A 2
+10.0.60.1       10.0.60.1       1505        0x80000002 0x0099B0 2
+10.0.123.245    10.0.123.245    272         0x80000009 0x008AED 4
+
+                Net Link States (Area 0)
+
+Link ID         ADV Router      Age         Seq#       Checksum
+10.0.123.246    10.0.30.1       125         0x80000002 0x006889
+10.0.123.249    10.0.20.1       1505        0x80000003 0x0022B3
+
+                Summary Net Link States (Area 0)
+
+Link ID         ADV Router      Age         Seq#       Checksum
+10.1.0.0        10.0.20.1       1145        0x80000001 0x0018F9
+10.1.0.0        10.0.40.1       461         0x80000003 0x008774
+10.1.1.0        10.0.40.1       456         0x80000001 0x008A71
+10.1.50.1       10.0.40.1       462         0x80000001 0x006366
+
+                Router Link States (Area 1)
+
+Link ID         ADV Router      Age         Seq#       Checksum Link count
+10.0.20.1       10.0.20.1       1156        0x80000001 0x00F5F1 1
+
+                Summary Net Link States (Area 1)
+
+Link ID         ADV Router      Age         Seq#       Checksum
+10.0.0.0        10.0.20.1       1166        0x80000001 0x0038D8
+10.0.1.0        10.0.20.1       1168        0x80000001 0x0019F8
+10.0.20.1       10.0.20.1       1168        0x80000001 0x003DC0
+10.0.40.1       10.0.20.1       1168        0x80000001 0x006A7E
+10.0.60.1       10.0.20.1       1168        0x80000001 0x008D47
+10.0.123.240    10.0.20.1       1168        0x80000001 0x00D297
+10.0.123.244    10.0.20.1       1168        0x80000001 0x003C68
+10.0.123.248    10.0.20.1       1170        0x80000001 0x00F1B3
+10.1.1.0        10.0.20.1       476         0x80000001 0x0021ED
+10.1.50.1       10.0.20.1       476         0x80000001 0x00F9E2
+R2#
+R2#
+R2#
+R2#
+R2#
+R2#
+R2#
+R2#
+R2#
+R2#
+*Mar  1 01:43:05.543: %OSPF-5-ADJCHG: Process 88, Nbr 10.0.60.1 on FastEthernet1                                                                           /0 from FULL to DOWN, Neighbor Down: Dead timer expired
+R2#
+*Mar  1 01:44:02.295: %OSPF-5-ADJCHG: Process 88, Nbr 10.0.60.1 on FastEthernet1                                                                           /0 from LOADING to FULL, Loading Done
+R2#i&d=
+% Unknown command or computer name, or unable to find computer address
+R2#show run
+Building configuration...
+
+Current configuration : 1452 bytes
+!
+version 12.3
+service timestamps debug datetime msec
+service timestamps log datetime msec
+no service password-encryption
+!
+hostname R2
+!
+boot-start-marker
+boot-end-marker
+!
+!
+no aaa new-model
+ip subnet-zero
+no ip icmp rate-limit unreachable
+ip tcp synwait-time 5
+!
+!
+no ip domain lookup
+!
+ip cef
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+interface Loopback0
+ ip address 10.0.20.1 255.255.255.252
+!
+interface FastEthernet0/0
+ ip address 10.0.1.1 255.255.255.0
+ duplex auto
+ speed auto
+!
+interface Serial0/0
+ ip address 10.0.123.242 255.255.255.252
+ clockrate 2000000
+!
+interface FastEthernet0/1
+ ip address 10.1.0.1 255.255.255.0
+ duplex auto
+ speed auto
+!
+interface Serial0/1
+ no ip address
+ shutdown
+ clockrate 2000000
+!
+interface Serial0/2
+ no ip address
+ shutdown
+ clockrate 2000000
+!
+interface Serial0/3
+ no ip address
+ shutdown
+ clockrate 2000000
+!
+interface FastEthernet1/0
+ ip address 10.0.123.249 255.255.255.248
+ duplex auto
+ speed auto
+!
+interface FastEthernet2/0
+ no ip address
+ shutdown
+ duplex auto
+ speed auto
+!
+router ospf 88
+ log-adjacency-changes
+ network 10.0.0.0 0.0.255.255 area 0
+ network 10.1.0.0 0.0.255.255 area 1
+!
+router rip
+ version 2
+ network 10.0.0.0
+!
+no ip http server
+no ip http secure-server
+ip classless
+!
+!
+no cdp log mismatch duplex
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+line con 0
+ exec-timeout 0 0
+ privilege level 15
+ logging synchronous
+line aux 0
+ exec-timeout 0 0
+ privilege level 15
+ logging synchronous
+line vty 0 4
+ login
+!
+end

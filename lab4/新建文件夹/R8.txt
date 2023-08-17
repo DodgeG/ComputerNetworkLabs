@@ -1,0 +1,319 @@
+Connected to Dynamips VM "R8" (ID 8, type c3725) - Console port
+Press ENTER to get the prompt.
+ph
+(c) (1) (ii) of the Rights in Technical Data and Computer
+Software clause at DFARS sec. 252.227-7013.
+
+           cisco Systems, Inc.
+           170 West Tasman Drive
+           San Jose, California 95134-1706
+
+
+
+Cisco Internetwork Operating System Software
+IOS (tm) 3700 Software (C3725-JK9S-M), Version 12.3(12a), RELEASE SOFTWARE (fc2)
+Technical Support: http://www.cisco.com/techsupport
+Copyright (c) 1986-2005 by cisco Systems, Inc.
+Compiled Thu 13-Jan-05 20:36 by kellythw
+Image text-base: 0x60008AF4, data-base: 0x6212C000
+
+
+ BIST FAILED...
+This product contains cryptographic features and is subject to United
+States and local country laws governing import, export, transfer and
+use. Delivery of Cisco cryptographic products does not imply
+third-party authority to import, export, distribute or use encryption.
+Importers, exporters, distributors and users are responsible for
+compliance with U.S. and local country laws. By using this product you
+agree to comply with applicable laws and regulations. If you are unable
+to comply with U.S. and local laws, return this product immediately.
+
+A summary of U.S. laws governing Cisco cryptographic products may be found at:
+http://www.cisco.com/wwl/export/crypto/tool/stqrg.html
+
+If you require further assistance please contact us by sending email to
+export@cisco.com.
+
+cisco 3725 (R7000) processor (revision 0.1) with 120832K/10240K bytes of memory.
+Processor board ID FTX0945W0MY
+R7000 CPU at 80MHz, Implementation 39, Rev 2.1, 256KB L2, 512KB L3 Cache
+Bridging software.
+X.25 software, Version 3.0.0.
+SuperLAT software (copyright 1990 by Meridian Technology Corp).
+TN3270 Emulation software.
+4 FastEthernet/IEEE 802.3 interface(s)
+4 Serial(sync/async) network interface(s)
+DRAM configuration is 64 bits wide with parity enabled.
+55K bytes of non-volatile configuration memory.
+
+SETUP: new interface FastEthernet0/0 placed in "shutdown" state
+SETUP: new interface Serial0/0 placed in "shutdown" state
+SETUP: new interface FastEthernet0/1 placed in "shutdown" state
+SETUP: new interface Serial0/1 placed in "shutdown" state
+SETUP: new interface Serial0/2 placed in "shutdown" state
+SETUP: new interface Serial0/3 placed in "shutdown" state
+SETUP: new interface FastEthernet1/0 placed in "shutdown" state
+SETUP: new interface FastEthernet2/0 placed in "shutdown" state
+
+
+Press RETURN to get started!
+
+
+*Mar  1 00:00:02.851: %LINK-5-CHANGED: Interface FastEthernet0/0, changed state                                                                            to administratively down
+*Mar  1 00:00:02.859: %LINK-5-CHANGED: Interface FastEthernet0/1, changed state                                                                            to administratively down
+*Mar  1 00:00:02.887: %LINK-5-CHANGED: Interface Serial0/0, changed state to adm                                                                           inistratively down
+*Mar  1 00:00:02.887: %LINK-5-CHANGED: Interface Serial0/1, changed state to adm                                                                           inistratively down
+*Mar  1 00:00:02.891: %LINK-5-CHANGED: Interface Serial0/2, changed state to adm                                                                           inistratively down
+*Mar  1 00:00:02.903: %LINK-5-CHANGED: Interface Serial0/3, changed state to adm                                                                           inistratively down
+*Mar  1 00:00:02.903: %LINK-5-CHANGED: Interface FastEthernet1/0, changed state                                                                            to administratively down
+*Mar  1 00:00:02.903: %LINK-5-CHANGED: Interface FastEthernet2/0, changed state                                                                            to administratively down
+*Mar  1 00:00:03.851: %LINEPROTO-5-UPDOWN: Line protocol on Interface FastEthern                                                                           et0/0, changed state to down
+*Mar  1 00:00:03.859: %LINEPROTO-5-UPDOWN: Line protocol on Interface FastEthern                                                                           et0/1, changed state to down
+*Mar  1 00:00:03.887: %LINEPROTO-5-UPDOWN: Line protocol on Interface Serial0/0,                                                                            changed state to down
+*Mar  1 00:00:03.887: %LINEPROTO-5-UPDOWN: Line protocol on Interface Serial0/1,                                                                            changed state to down
+*Mar  1 00:00:03.891: %LINEPROTO-5-UPDOWN: Line protocol on Interface Serial0/2,                                                                            changed state to down
+*Mar  1 00:00:03.903: %LINEPROTO-5-UPDOWN: Line protocol on Interface Serial0/3,                                                                            changed state to down
+*Mar  1 00:00:03.903: %LINEPROTO-5-UPDOWN: Line protocol on Interface FastEthern                                                                           et1/0, changed state to down
+*Mar  1 00:00:03.903: %LINEPROTO-5-UPDOWN: Line protocol on Interface FastEthern                                                                           et2/0, changed state to down
+R8#int f0/1
+    ^
+% Invalid input detected at '^' marker.
+
+R8#conf t
+Enter configuration commands, one per line.  End with CNTL/Z.
+R8(config)#int f0/1
+R8(config-if)#ip address 10.2.0.2 255.255.255.0
+R8(config-if)#no shut
+R8(config-if)#
+*Mar  1 01:08:40.179: %LINK-3-UPDOWN: Interface FastEthernet0/1, changed state to up
+*Mar  1 01:08:41.179: %LINEPROTO-5-UPDOWN: Line protocol on Interface FastEthernet0/1, changed state to up
+R8(config-if)#int f0/0
+R8(config-if)#ip address 10.2.2.1 255.255.255.0
+R8(config-if)#no shut
+R8(config-if)#
+*Mar  1 01:08:57.783: %LINK-3-UPDOWN: Interface FastEthernet0/0, changed state to up
+*Mar  1 01:08:58.783: %LINEPROTO-5-UPDOWN: Line protocol on Interface FastEthernet0/0, changed state to up
+R8(config-if)#int f1/0
+R8(config-if)#ip address 10.2.1.1 255.255.255.0
+R8(config-if)#no shut
+R8(config-if)#
+*Mar  1 01:09:12.727: %LINK-3-UPDOWN: Interface FastEthernet1/0, changed state to up
+*Mar  1 01:09:13.727: %LINEPROTO-5-UPDOWN: Line protocol on Interface FastEthernet1/0, changed state to up
+R8(config-if)#int loopback 0
+R8(config-if)#ip address 10.2.80.1 255.255.255.252
+R8(config-if)#router ospf 88
+R8(config-router)#network 10.2.0.0 0.0.255.255 area 2
+R8(config-router)#
+*Mar  1 01:09:52.955: %OSPF-5-ADJCHG: Process 88, Nbr 10.0.60.1 on FastEthernet0/1 from LOADING to FULL, Loading Done
+R8(config-router)#^Z
+R8#shw
+*Mar  1 01:10:04.919: %SYS-5-CONFIG_I: Configured from console by console
+R8#show ip route
+Codes: C - connected, S - static, R - RIP, M - mobile, B - BGP
+       D - EIGRP, EX - EIGRP external, O - OSPF, IA - OSPF inter area
+       N1 - OSPF NSSA external type 1, N2 - OSPF NSSA external type 2
+       E1 - OSPF external type 1, E2 - OSPF external type 2
+       i - IS-IS, su - IS-IS summary, L1 - IS-IS level-1, L2 - IS-IS level-2
+       ia - IS-IS inter area, * - candidate default, U - per-user static route
+       o - ODR, P - periodic downloaded static route
+
+Gateway of last resort is not set
+
+     10.0.0.0/8 is variably subnetted, 15 subnets, 4 masks
+C       10.2.0.0/24 is directly connected, FastEthernet0/1
+C       10.2.1.0/24 is directly connected, FastEthernet1/0
+C       10.2.2.0/24 is directly connected, FastEthernet0/0
+O IA    10.1.1.0/24 [110/4] via 10.2.0.1, 00:00:11, FastEthernet0/1
+O IA    10.0.0.0/24 [110/4] via 10.2.0.1, 00:00:11, FastEthernet0/1
+O IA    10.1.0.0/24 [110/3] via 10.2.0.1, 00:00:11, FastEthernet0/1
+O IA    10.0.1.0/24 [110/3] via 10.2.0.1, 00:00:11, FastEthernet0/1
+O IA    10.0.20.1/32 [110/3] via 10.2.0.1, 00:00:15, FastEthernet0/1
+O IA    10.0.40.1/32 [110/3] via 10.2.0.1, 00:00:15, FastEthernet0/1
+O IA    10.0.60.1/32 [110/2] via 10.2.0.1, 00:00:15, FastEthernet0/1
+O IA    10.1.50.1/32 [110/4] via 10.2.0.1, 00:00:15, FastEthernet0/1
+C       10.2.80.0/30 is directly connected, Loopback0
+O IA    10.0.123.240/30 [110/66] via 10.2.0.1, 00:00:18, FastEthernet0/1
+O IA    10.0.123.244/30 [110/3] via 10.2.0.1, 00:00:19, FastEthernet0/1
+O IA    10.0.123.248/29 [110/2] via 10.2.0.1, 00:00:19, FastEthernet0/1
+R8#
+R8#
+*Mar  1 01:28:25.671: %OSPF-5-ADJCHG: Process 88, Nbr 10.2.70.1 on FastEthernet0/0 from LOADING to FULL, Loading Done
+R8#show ip ospf database
+
+            OSPF Router with ID (10.2.80.1) (Process ID 88)
+
+                Router Link States (Area 2)
+
+Link ID         ADV Router      Age         Seq#       Checksum Link count
+10.0.60.1       10.0.60.1       209         0x80000003 0x00B6D0 1
+10.2.70.1       10.2.70.1       999         0x80000002 0x00E225 2
+10.2.80.1       10.2.80.1       999         0x80000003 0x00356B 4
+
+                Net Link States (Area 2)
+
+Link ID         ADV Router      Age         Seq#       Checksum
+10.2.0.1        10.0.60.1       209         0x80000002 0x000A36
+10.2.2.1        10.2.80.1       999         0x80000001 0x009B81
+
+                Summary Net Link States (Area 2)
+
+Link ID         ADV Router      Age         Seq#       Checksum
+10.0.0.0        10.0.60.1       469         0x80000002 0x001DCA
+10.0.1.0        10.0.60.1       469         0x80000002 0x0008DF
+10.0.20.1       10.0.60.1       469         0x80000002 0x002CA7
+10.0.40.1       10.0.60.1       469         0x80000002 0x004F70
+10.0.60.1       10.0.60.1       469         0x80000002 0x006844
+10.0.123.240    10.0.60.1       472         0x80000002 0x00C17E
+10.0.123.244    10.0.60.1       472         0x80000002 0x00215A
+10.0.123.248    10.0.60.1       473         0x80000002 0x00D6A5
+10.1.0.0        10.0.60.1       473         0x80000002 0x0007E0
+10.1.1.0        10.0.60.1       473         0x80000002 0x0006DF
+10.1.2.5        10.0.60.1       318         0x80000001 0x00C021
+10.1.2.7        10.0.60.1       223         0x80000001 0x002F70
+10.1.50.1       10.0.60.1       475         0x80000002 0x00DED4
+R8#
+R8#
+R8#
+R8#
+R8#
+R8#show ip route <ip network>
+                 ^
+% Invalid input detected at '^' marker.
+
+R8#show ip route 10.1.1.0
+Routing entry for 10.1.1.0/24
+  Known via "ospf 88", distance 110, metric 4, type inter area
+  Last update from 10.2.0.1 on FastEthernet0/1, 00:18:57 ago
+  Routing Descriptor Blocks:
+  * 10.2.0.1, from 10.0.60.1, 00:18:57 ago, via FastEthernet0/1
+      Route metric is 4, traffic share count is 1
+
+R8#show ip route 10.1.1.0
+% Subnet not in table
+R8#show ip route 10.1.1.0
+Routing entry for 10.1.1.0/24
+  Known via "ospf 88", distance 110, metric 4, type inter area
+  Last update from 10.2.0.1 on FastEthernet0/1, 00:00:02 ago
+  Routing Descriptor Blocks:
+  * 10.2.0.1, from 10.0.60.1, 00:00:02 ago, via FastEthernet0/1
+      Route metric is 4, traffic share count is 1
+
+R8#show run
+Building configuration...
+
+Current configuration : 1351 bytes
+!
+version 12.3
+service timestamps debug datetime msec
+service timestamps log datetime msec
+no service password-encryption
+!
+hostname R8
+!
+boot-start-marker
+boot-end-marker
+!
+!
+no aaa new-model
+ip subnet-zero
+no ip icmp rate-limit unreachable
+ip tcp synwait-time 5
+!
+!
+no ip domain lookup
+!
+ip cef
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+interface Loopback0
+ ip address 10.2.80.1 255.255.255.252
+!
+interface FastEthernet0/0
+ ip address 10.2.2.1 255.255.255.0
+ duplex auto
+ speed auto
+!
+interface Serial0/0
+ no ip address
+ shutdown
+ clockrate 2000000
+!
+interface FastEthernet0/1
+ ip address 10.2.0.2 255.255.255.0
+ duplex auto
+ speed auto
+!
+interface Serial0/1
+ no ip address
+ shutdown
+ clockrate 2000000
+!
+interface Serial0/2
+ no ip address
+ shutdown
+ clockrate 2000000
+!
+interface Serial0/3
+ no ip address
+ shutdown
+ clockrate 2000000
+!
+interface FastEthernet1/0
+ ip address 10.2.1.1 255.255.255.0
+ duplex auto
+ speed auto
+!
+interface FastEthernet2/0
+ no ip address
+ shutdown
+ duplex auto
+ speed auto
+!
+router ospf 88
+ log-adjacency-changes
+ network 10.2.0.0 0.0.255.255 area 2
+!
+no ip http server
+no ip http secure-server
+ip classless
+!
+!
+no cdp log mismatch duplex
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+line con 0
+ exec-timeout 0 0
+ privilege level 15
+ logging synchronous
+line aux 0
+ exec-timeout 0 0
+ privilege level 15
+ logging synchronous
+line vty 0 4
+ login
+!
+end

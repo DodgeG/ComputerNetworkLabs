@@ -1,0 +1,200 @@
+Connected to Dynamips VM "R3" (ID 3, type c3725) - Console port
+Press ENTER to get the prompt.
+0:00:02.687: %LINK-5-CHANGED: Interface Serial0/1, changed state to administrati                                                                           vely down
+*Mar  1 00:00:02.687: %LINK-5-CHANGED: Interface Serial0/2, changed state to adm                                                                           inistratively down
+*Mar  1 00:00:02.691: %LINK-5-CHANGED: Interface Serial0/3, changed state to adm                                                                           inistratively down
+*Mar  1 00:00:02.703: %LINK-5-CHANGED: Interface FastEthernet1/0, changed state                                                                            to administratively down
+*Mar  1 00:00:02.703: %LINK-5-CHANGED: Interface FastEthernet2/0, changed state                                                                            to administratively down
+*Mar  1 00:00:03.643: %LINEPROTO-5-UPDOWN: Line protocol on Interface FastEthern                                                                           et0/0, changed state to down
+*Mar  1 00:00:03.655: %LINEPROTO-5-UPDOWN: Line protocol on Interface FastEthern                                                                           et0/1, changed state to down
+*Mar  1 00:00:03.687: %LINEPROTO-5-UPDOWN: Line protocol on Interface Serial0/0,                                                                            changed state to down
+*Mar  1 00:00:03.687: %LINEPROTO-5-UPDOWN: Line protocol on Interface Serial0/1,                                                                            changed state to down
+*Mar  1 00:00:03.687: %LINEPROTO-5-UPDOWN: Line protocol on Interface Serial0/2,                                                                            changed state to down
+*Mar  1 00:00:03.691: %LINEPROTO-5-UPDOWN: Line protocol on Interface Serial0/3,                                                                            changed state to down
+*Mar  1 00:00:03.703: %LINEPROTO-5-UPDOWN: Line protocol on Interface FastEthern                                                                           et1/0, changed state to down
+*Mar  1 00:00:03.703: %LINEPROTO-5-UPDOWN: Line protocol on Interface FastEthern                                                                           et2/0, changed state to down
+R3#
+R3#
+R3#
+R3#
+R3#
+R3#
+R3#
+R3#
+R3#
+R3#
+R3#
+R3#show ip route
+Codes: C - connected, S - static, R - RIP, M - mobile, B - BGP
+       D - EIGRP, EX - EIGRP external, O - OSPF, IA - OSPF inter area
+       N1 - OSPF NSSA external type 1, N2 - OSPF NSSA external type 2
+       E1 - OSPF external type 1, E2 - OSPF external type 2
+       i - IS-IS, su - IS-IS summary, L1 - IS-IS level-1, L2 - IS-IS level-2
+       ia - IS-IS inter area, * - candidate default, U - per-user static route
+       o - ODR, P - periodic downloaded static route
+
+Gateway of last resort is not set
+
+R3#conf t
+Enter configuration commands, one per line.  End with CNTL/Z.
+R3(config)#int fa0/1
+R3(config-if)#ip address  10.0.123.246 255.255.255.252
+R3(config-if)#no shut
+R3(config-if)#ex
+R3(config)#
+*Mar  1 00:02:48.011: %LINK-3-UPDOWN: Interface FastEthernet0/1, changed state t                                                                           o up
+*Mar  1 00:02:49.011: %LINEPROTO-5-UPDOWN: Line protocol on Interface FastEthern                                                                           et0/1, changed state to up
+R3(config)#int fa1/0
+R3(config-if)#ip address 10.0.123.250 255.255.255.248
+R3(config-if)#no shut
+R3(config-if)#
+*Mar  1 00:02:58.359: %LINK-3-UPDOWN: Interface FastEthernet1/0, changed state t                                                                           o up
+*Mar  1 00:02:59.359: %LINEPROTO-5-UPDOWN: Line protocol on Interface FastEthern                                                                           et1/0, changed state to up
+R3(config-if)#ex
+R3(config)#router rip
+R3(config-router)#network 10.0.0.0
+R3(config-router)#version 2
+R3(config-router)#router ospf 88
+R3(config-router)#router-id 10.0.30.1
+R3(config-router)#network 10.0.0.0 0.0.255.255 area 0
+R3(config-router)#
+*Mar  1 00:09:48.083: %OSPF-5-ADJCHG: Process 88, Nbr 10.0.20.1 on FastEthernet1                                                                           /0 from LOADING to FULL, Loading Done
+R3(config-router)#
+*Mar  1 00:09:54.395: %OSPF-5-ADJCHG: Process 88, Nbr 10.0.123.245 on FastEthern                                                                           et0/1 from LOADING to FULL, Loading Done
+R3(config-router)#
+*Mar  1 00:11:52.647: %OSPF-5-ADJCHG: Process 88, Nbr 10.0.123.245 on FastEthern                                                                           et0/1 from FULL to DOWN, Neighbor Down: Dead timer expired
+R3(config-router)#
+*Mar  1 00:14:12.163: %OSPF-5-ADJCHG: Process 88, Nbr 10.0.123.245 on FastEthern                                                                           et0/1 from LOADING to FULL, Loading Done
+R3(config-router)#
+*Mar  1 00:22:12.699: %OSPF-5-ADJCHG: Process 88, Nbr 10.0.40.1 on FastEthernet1                                                                           /0 from LOADING to FULL, Loading Done
+R3(config-router)#
+*Mar  1 00:25:12.607: %OSPF-5-ADJCHG: Process 88, Nbr 10.0.60.1 on FastEthernet1                                                                           /0 from LOADING to FULL, Loading Done
+R3(config-router)#
+*Mar  1 01:39:48.739: %OSPF-5-ADJCHG: Process 88, Nbr 10.0.60.1 on FastEthernet1                                                                           /0 from FULL to DOWN, Neighbor Down: Dead timer expired
+R3(config-router)#
+*Mar  1 01:40:42.567: %OSPF-5-ADJCHG: Process 88, Nbr 10.0.60.1 on FastEthernet1                                                                           /0 from LOADING to FULL, Loading Done
+R3(config-router)#^Z
+R3#sho
+*Mar  1 02:01:22.807: %SYS-5-CONFIG_I: Configured from console by console
+R3#show run
+Building configuration...
+
+Current configuration : 1356 bytes
+!
+version 12.3
+service timestamps debug datetime msec
+service timestamps log datetime msec
+no service password-encryption
+!
+hostname R3
+!
+boot-start-marker
+boot-end-marker
+!
+!
+no aaa new-model
+ip subnet-zero
+no ip icmp rate-limit unreachable
+ip tcp synwait-time 5
+!
+!
+no ip domain lookup
+!
+ip cef
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+interface FastEthernet0/0
+ no ip address
+ shutdown
+ duplex auto
+ speed auto
+!
+interface Serial0/0
+ no ip address
+ shutdown
+ clockrate 2000000
+!
+interface FastEthernet0/1
+ ip address 10.0.123.246 255.255.255.252
+ duplex auto
+ speed auto
+!
+interface Serial0/1
+ no ip address
+ shutdown
+ clockrate 2000000
+!
+interface Serial0/2
+ no ip address
+ shutdown
+ clockrate 2000000
+!
+interface Serial0/3
+ no ip address
+ shutdown
+ clockrate 2000000
+!
+interface FastEthernet1/0
+ ip address 10.0.123.250 255.255.255.248
+ duplex auto
+ speed auto
+!
+interface FastEthernet2/0
+ no ip address
+ shutdown
+ duplex auto
+ speed auto
+!
+router ospf 88
+ router-id 10.0.30.1
+ log-adjacency-changes
+ network 10.0.0.0 0.0.255.255 area 0
+!
+router rip
+ version 2
+ network 10.0.0.0
+!
+no ip http server
+no ip http secure-server
+ip classless
+!
+!
+no cdp log mismatch duplex
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+line con 0
+ exec-timeout 0 0
+ privilege level 15
+ logging synchronous
+line aux 0
+ exec-timeout 0 0
+ privilege level 15
+ logging synchronous
+line vty 0 4
+ login
+!
+end

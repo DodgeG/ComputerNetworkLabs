@@ -1,0 +1,310 @@
+Connected to Dynamips VM "R9" (ID 9, type c3725) - Console port
+Press ENTER to get the prompt.
+
+(c) of the Commercial Computer Software - Restricted
+Rights clause at FAR sec. 52.227-19 and subparagraph
+(c) (1) (ii) of the Rights in Technical Data and Computer
+Software clause at DFARS sec. 252.227-7013.
+
+           cisco Systems, Inc.
+           170 West Tasman Drive
+           San Jose, California 95134-1706
+
+
+
+Cisco Internetwork Operating System Software
+IOS (tm) 3700 Software (C3725-JK9S-M), Version 12.3(12a), RELEASE SOFTWARE (fc2)
+Technical Support: http://www.cisco.com/techsupport
+Copyright (c) 1986-2005 by cisco Systems, Inc.
+Compiled Thu 13-Jan-05 20:36 by kellythw
+Image text-base: 0x60008AF4, data-base: 0x6212C000
+
+
+ BIST FAILED...
+This product contains cryptographic features and is subject to United
+States and local country laws governing import, export, transfer and
+use. Delivery of Cisco cryptographic products does not imply
+third-party authority to import, export, distribute or use encryption.
+Importers, exporters, distributors and users are responsible for
+compliance with U.S. and local country laws. By using this product you
+agree to comply with applicable laws and regulations. If you are unable
+to comply with U.S. and local laws, return this product immediately.
+
+A summary of U.S. laws governing Cisco cryptographic products may be found at:
+http://www.cisco.com/wwl/export/crypto/tool/stqrg.html
+
+If you require further assistance please contact us by sending email to
+export@cisco.com.
+
+cisco 3725 (R7000) processor (revision 0.1) with 120832K/10240K bytes of memory.
+Processor board ID FTX0945W0MY
+R7000 CPU at 80MHz, Implementation 39, Rev 2.1, 256KB L2, 512KB L3 Cache
+Bridging software.
+X.25 software, Version 3.0.0.
+SuperLAT software (copyright 1990 by Meridian Technology Corp).
+TN3270 Emulation software.
+4 FastEthernet/IEEE 802.3 interface(s)
+4 Serial(sync/async) network interface(s)
+DRAM configuration is 64 bits wide with parity enabled.
+55K bytes of non-volatile configuration memory.
+
+SETUP: new interface FastEthernet0/0 placed in "shutdown" state
+SETUP: new interface Serial0/0 placed in "shutdown" state
+SETUP: new interface FastEthernet0/1 placed in "shutdown" state
+SETUP: new interface Serial0/1 placed in "shutdown" state
+SETUP: new interface Serial0/2 placed in "shutdown" state
+SETUP: new interface Serial0/3 placed in "shutdown" state
+SETUP: new interface FastEthernet1/0 placed in "shutdown" state
+SETUP: new interface FastEthernet2/0 placed in "shutdown" state
+
+
+Press RETURN to get started!
+
+
+*Mar  1 00:00:02.855: %LINK-5-CHANGED: Interface FastEthernet0/1, changed state                                                                            to administratively down
+*Mar  1 00:00:02.875: %LINK-5-CHANGED: Interface Serial0/0, changed state to adm                                                                           inistratively down
+*Mar  1 00:00:02.883: %LINK-5-CHANGED: Interface Serial0/1, changed state to adm                                                                           inistratively down
+*Mar  1 00:00:02.883: %LINK-5-CHANGED: Interface Serial0/2, changed state to adm                                                                           inistratively down
+*Mar  1 00:00:02.883: %LINK-5-CHANGED: Interface Serial0/3, changed state to adm                                                                           inistratively down
+*Mar  1 00:00:02.887: %LINK-5-CHANGED: Interface FastEthernet1/0, changed state                                                                            to administratively down
+*Mar  1 00:00:02.887: %LINK-5-CHANGED: Interface FastEthernet2/0, changed state                                                                            to administratively down
+*Mar  1 00:00:03.827: %LINEPROTO-5-UPDOWN: Line protocol on Interface FastEthern                                                                           et0/0, changed state to down
+*Mar  1 00:00:03.855: %LINEPROTO-5-UPDOWN: Line protocol on Interface FastEthern                                                                           et0/1, changed state to down
+*Mar  1 00:00:03.875: %LINEPROTO-5-UPDOWN: Line protocol on Interface Serial0/0,                                                                            changed state to down
+*Mar  1 00:00:03.883: %LINEPROTO-5-UPDOWN: Line protocol on Interface Serial0/1,                                                                            changed state to down
+*Mar  1 00:00:03.883: %LINEPROTO-5-UPDOWN: Line protocol on Interface Serial0/2,                                                                            changed state to down
+*Mar  1 00:00:03.883: %LINEPROTO-5-UPDOWN: Line protocol on Interface Serial0/3,                                                                            changed state to down
+*Mar  1 00:00:03.887: %LINEPROTO-5-UPDOWN: Line protocol on Interface FastEthern                                                                           et1/0, changed state to down
+*Mar  1 00:00:03.887: %LINEPROTO-5-UPDOWN: Line protocol on Interface FastEthern                                                                           et2/0, changed state to down
+R9#conf t
+Enter configuration commands, one per line.  End with CNTL/Z.
+R9(config)#int f0/1
+R9(config-if)#ip address 10.3.0.1 255.255.255.0
+R9(config-if)#no shut
+R9(config-if)#
+*Mar  1 01:32:38.563: %LINK-3-UPDOWN: Interface FastEthernet0/1, changed state to up
+*Mar  1 01:32:39.563: %LINEPROTO-5-UPDOWN: Line protocol on Interface FastEthernet0/1, changed state to up
+R9(config-if)#int s0/0
+R9(config-if)#int s0/2
+R9(config-if)#ip address 10.1.2.9 255.255.255.0
+R9(config-if)#encapsulation frame-relay
+R9(config-if)#frame-relay lmi-type ANSI
+R9(config-if)#frame-relay interface-dlci 203
+R9(config-fr-dlci)#ex
+R9(config-if)#no shut
+R9(config-if)#
+*Mar  1 01:33:21.227: %LINK-3-UPDOWN: Interface Serial0/2, changed state to up
+R9(config-if)#int looop
+*Mar  1 01:33:32.227: %LINEPROTO-5-UPDOWN: Line protocol on Interface Serial0/2, changed state to up
+R9(config-if)#int loopback 0
+R9(config-if)#ip address 10.3.90.1 255.255.255.252
+R9(config-if)#router ospf 88
+R9(config-router)#network 10.3.0.0 0.0.255.255 area 3
+R9(config-router)#network 10.1.0.0 0.0.255.255 area 1
+R9(config-router)#
+*Mar  1 01:34:02.227: %LINEPROTO-5-UPDOWN: Line protocol on Interface Serial0/2, changed state to down
+R9(config-router)#^Z
+R9#
+*Mar  1 01:34:19.455: %SYS-5-CONFIG_I: Configured from console by console
+R9#show frame-relay mapo<
+R9#show frame-relay map
+
+R9#show frame-relay map
+
+R9#ping 10.1.2.6
+
+Type escape sequence to abort.
+Sending 5, 100-byte ICMP Echos to 10.1.2.6, timeout is 2 seconds:
+.....
+Success rate is 0 percent (0/5)
+R9#ping 10.1.2.7
+
+Type escape sequence to abort.
+Sending 5, 100-byte ICMP Echos to 10.1.2.7, timeout is 2 seconds:
+.....
+Success rate is 0 percent (0/5)
+R9#show ip ospf neigh
+
+R9#conf t
+Enter configuration commands, one per line.  End with CNTL/Z.
+R9(config)#int s0/2
+R9(config-if)#ip ospf network point-to-multipoint
+R9(config-if)#show ip ospf neigh
+                ^
+% Invalid input detected at '^' marker.
+
+R9(config-if)#^Z
+R9#show
+*Mar  1 01:43:58.395: %SYS-5-CONFIG_I: Configured from console by console
+R9#show ip ospf neigh
+
+R9#
+*Mar  1 01:53:08.763: %OSPF-5-ADJCHG: Process 88, Nbr 10.3.100.1 on FastEthernet0/1 from LOADING to FULL, Loading Done
+R9#conf t
+Enter configuration commands, one per line.  End with CNTL/Z.
+R9(config)#router ospf 88
+R9(config-router)#area 1 virtual-link 10.0.40.1
+R9(config-router)#
+R9#
+*Mar  1 01:55:13.795: %SYS-5-CONFIG_I: Configured from console by console
+R9#show ip ospf virtual-links
+Virtual Link OSPF_VL0 to router 10.0.40.1 is down
+  Run as demand circuit
+  DoNotAge LSA allowed.
+  Transit area 1, Cost of using 65535
+  Transmit Delay is 1 sec, State DOWN,
+  Timer intervals configured, Hello 10, Dead 40, Wait 40, Retransmit 5
+R9#show ip ospf neigh
+
+Neighbor ID     Pri   State           Dead Time   Address         Interface
+10.3.100.1        1   FULL/BDR        00:00:33    10.3.0.2        FastEthernet0/1
+R9#area 0 range 10.0.0.0 255.255.0.0
+     ^
+% Invalid input detected at '^' marker.
+
+R9#area 0 range <10.0.0.0> <255.255.0.0>
+     ^
+% Invalid input detected at '^' marker.
+
+R9#show ip route
+Codes: C - connected, S - static, R - RIP, M - mobile, B - BGP
+       D - EIGRP, EX - EIGRP external, O - OSPF, IA - OSPF inter area
+       N1 - OSPF NSSA external type 1, N2 - OSPF NSSA external type 2
+       E1 - OSPF external type 1, E2 - OSPF external type 2
+       i - IS-IS, su - IS-IS summary, L1 - IS-IS level-1, L2 - IS-IS level-2
+       ia - IS-IS inter area, * - candidate default, U - per-user static route
+       o - ODR, P - periodic downloaded static route
+
+Gateway of last resort is not set
+
+     10.0.0.0/8 is variably subnetted, 4 subnets, 3 masks
+O       10.3.1.0/24 [110/2] via 10.3.0.2, 00:09:15, FastEthernet0/1
+C       10.3.0.0/24 is directly connected, FastEthernet0/1
+C       10.3.90.0/30 is directly connected, Loopback0
+O       10.3.100.1/32 [110/2] via 10.3.0.2, 00:09:15, FastEthernet0/1
+R9#show run
+Building configuration...
+
+Current configuration : 1532 bytes
+!
+version 12.3
+service timestamps debug datetime msec
+service timestamps log datetime msec
+no service password-encryption
+!
+hostname R9
+!
+boot-start-marker
+boot-end-marker
+!
+!
+no aaa new-model
+ip subnet-zero
+no ip icmp rate-limit unreachable
+ip tcp synwait-time 5
+!
+!
+no ip domain lookup
+!
+ip cef
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+interface Loopback0
+ ip address 10.3.90.1 255.255.255.252
+!
+interface FastEthernet0/0
+ no ip address
+ shutdown
+ duplex auto
+ speed auto
+!
+interface Serial0/0
+ no ip address
+ shutdown
+ clockrate 2000000
+!
+interface FastEthernet0/1
+ ip address 10.3.0.1 255.255.255.0
+ duplex auto
+ speed auto
+!
+interface Serial0/1
+ no ip address
+ shutdown
+ clockrate 2000000
+!
+interface Serial0/2
+ ip address 10.1.2.9 255.255.255.0
+ encapsulation frame-relay
+ ip ospf network point-to-multipoint
+ clockrate 2000000
+ frame-relay interface-dlci 203
+ frame-relay lmi-type ansi
+!
+interface Serial0/3
+ no ip address
+ shutdown
+ clockrate 2000000
+!
+interface FastEthernet1/0
+ no ip address
+ shutdown
+ duplex auto
+ speed auto
+!
+interface FastEthernet2/0
+ no ip address
+ shutdown
+ duplex auto
+ speed auto
+!
+router ospf 88
+ log-adjacency-changes
+ area 1 virtual-link 10.0.40.1
+ network 10.1.0.0 0.0.255.255 area 1
+ network 10.3.0.0 0.0.255.255 area 3
+!
+no ip http server
+no ip http secure-server
+ip classless
+!
+!
+no cdp log mismatch duplex
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+line con 0
+ exec-timeout 0 0
+ privilege level 15
+ logging synchronous
+line aux 0
+ exec-timeout 0 0
+ privilege level 15
+ logging synchronous
+line vty 0 4
+ login
+!
+end

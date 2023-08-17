@@ -1,0 +1,259 @@
+Connected to Dynamips VM "R6" (ID 6, type c3725) - Console port
+Press ENTER to get the prompt.
+
+(c) of the Commercial Computer Software - Restricted
+Rights clause at FAR sec. 52.227-19 and subparagraph
+(c) (1) (ii) of the Rights in Technical Data and Computer
+Software clause at DFARS sec. 252.227-7013.
+
+           cisco Systems, Inc.
+           170 West Tasman Drive
+           San Jose, California 95134-1706
+
+
+
+Cisco Internetwork Operating System Software
+IOS (tm) 3700 Software (C3725-JK9S-M), Version 12.3(12a), RELEASE SOFTWARE (fc2)
+Technical Support: http://www.cisco.com/techsupport
+Copyright (c) 1986-2005 by cisco Systems, Inc.
+Compiled Thu 13-Jan-05 20:36 by kellythw
+Image text-base: 0x60008AF4, data-base: 0x6212C000
+
+
+ BIST FAILED...
+This product contains cryptographic features and is subject to United
+States and local country laws governing import, export, transfer and
+use. Delivery of Cisco cryptographic products does not imply
+third-party authority to import, export, distribute or use encryption.
+Importers, exporters, distributors and users are responsible for
+compliance with U.S. and local country laws. By using this product you
+agree to comply with applicable laws and regulations. If you are unable
+to comply with U.S. and local laws, return this product immediately.
+
+A summary of U.S. laws governing Cisco cryptographic products may be found at:
+http://www.cisco.com/wwl/export/crypto/tool/stqrg.html
+
+If you require further assistance please contact us by sending email to
+export@cisco.com.
+
+cisco 3725 (R7000) processor (revision 0.1) with 120832K/10240K bytes of memory.
+Processor board ID FTX0945W0MY
+R7000 CPU at 80MHz, Implementation 39, Rev 2.1, 256KB L2, 512KB L3 Cache
+Bridging software.
+X.25 software, Version 3.0.0.
+SuperLAT software (copyright 1990 by Meridian Technology Corp).
+TN3270 Emulation software.
+4 FastEthernet/IEEE 802.3 interface(s)
+4 Serial(sync/async) network interface(s)
+DRAM configuration is 64 bits wide with parity enabled.
+55K bytes of non-volatile configuration memory.
+
+SETUP: new interface FastEthernet0/0 placed in "shutdown" state
+SETUP: new interface Serial0/0 placed in "shutdown" state
+SETUP: new interface FastEthernet0/1 placed in "shutdown" state
+SETUP: new interface Serial0/1 placed in "shutdown" state
+SETUP: new interface Serial0/2 placed in "shutdown" state
+SETUP: new interface Serial0/3 placed in "shutdown" state
+SETUP: new interface FastEthernet1/0 placed in "shutdown" state
+SETUP: new interface FastEthernet2/0 placed in "shutdown" state
+
+
+Press RETURN to get started!
+
+
+*Mar  1 00:00:02.835: %LINK-5-CHANGED: Interface FastEthernet0/1, changed state                                                                            to administratively down
+*Mar  1 00:00:02.867: %LINK-5-CHANGED: Interface Serial0/0, changed state to adm                                                                           inistratively down
+*Mar  1 00:00:02.867: %LINK-5-CHANGED: Interface Serial0/1, changed state to adm                                                                           inistratively down
+*Mar  1 00:00:02.867: %LINK-5-CHANGED: Interface Serial0/2, changed state to adm                                                                           inistratively down
+*Mar  1 00:00:02.871: %LINK-5-CHANGED: Interface Serial0/3, changed state to adm                                                                           inistratively down
+*Mar  1 00:00:02.871: %LINK-5-CHANGED: Interface FastEthernet1/0, changed state                                                                            to administratively down
+*Mar  1 00:00:02.879: %LINK-5-CHANGED: Interface FastEthernet2/0, changed state                                                                            to administratively down
+*Mar  1 00:00:03.827: %LINEPROTO-5-UPDOWN: Line protocol on Interface FastEthern                                                                           et0/0, changed state to down
+*Mar  1 00:00:03.835: %LINEPROTO-5-UPDOWN: Line protocol on Interface FastEthern                                                                           et0/1, changed state to down
+*Mar  1 00:00:03.867: %LINEPROTO-5-UPDOWN: Line protocol on Interface Serial0/0,                                                                            changed state to down
+*Mar  1 00:00:03.867: %LINEPROTO-5-UPDOWN: Line protocol on Interface Serial0/1,                                                                            changed state to down
+*Mar  1 00:00:03.867: %LINEPROTO-5-UPDOWN: Line protocol on Interface Serial0/2,                                                                            changed state to down
+*Mar  1 00:00:03.871: %LINEPROTO-5-UPDOWN: Line protocol on Interface Serial0/3,                                                                            changed state to down
+*Mar  1 00:00:03.871: %LINEPROTO-5-UPDOWN: Line protocol on Interface FastEthern                                                                           et1/0, changed state to down
+*Mar  1 00:00:03.879: %LINEPROTO-5-UPDOWN: Line protocol on Interface FastEthern                                                                           et2/0, changed state to down
+R6#conf t
+Enter configuration commands, one per line.  End with CNTL/Z.
+R6(config)#int loopback 0
+R6(config-if)#ip address 10.0.60.1 255.255.255.252
+R6(config-if)#int fa0/0
+R6(config-if)#ip address 10.0.123.251 255.255.255.248
+R6(config-if)#no shutdown
+R6(config-if)#router
+*Mar  1 00:32:52.207: %LINK-3-UPDOWN: Interface FastEthernet0/0, changed state to up
+*Mar  1 00:32:53.207: %LINEPROTO-5-UPDOWN: Line protocol on Interface FastEthernet0/0, changed state to up
+R6(config-if)#router ospf 88
+R6(config-router)#network 10.0.0.0 0.0.255.255 area 0
+R6(config-router)#
+*Mar  1 00:33:25.219: %OSPF-5-ADJCHG: Process 88, Nbr 10.0.20.1 on FastEthernet0/0 from LOADING to FULL, Loading Done
+*Mar  1 00:33:25.311: %OSPF-5-ADJCHG: Process 88, Nbr 10.0.30.1 on FastEthernet0/0 from LOADING to FULL, Loading Done
+R6(config-router)#^Z
+R6#
+*Mar  1 00:34:29.847: %SYS-5-CONFIG_I: Configured from console by console
+R6#sh ip ospf neighbor
+
+Neighbor ID     Pri   State           Dead Time   Address         Interface
+10.0.20.1         1   FULL/DR         00:00:32    10.0.123.249    FastEthernet0/0
+10.0.30.1         1   FULL/BDR        00:00:35    10.0.123.250    FastEthernet0/0
+10.0.40.1         1   2WAY/DROTHER    00:00:33    10.0.123.252    FastEthernet0/0
+R6#conf t
+Enter configuration commands, one per line.  End with CNTL/Z.
+R6(config)#int fa0/1
+R6(config-if)#ip address 10.2.0.1 255.255.255.0
+R6(config-if)#no shutdown
+R6(config-if)#
+*Mar  1 01:04:48.583: %LINK-3-UPDOWN: Interface FastEthernet0/1, changed state to up
+*Mar  1 01:04:49.583: %LINEPROTO-5-UPDOWN: Line protocol on Interface FastEthernet0/1, changed state to up
+R6(config-if)#router ospf 88
+R6(config-router)#network 10.2.0.0 0.0.255.255 area 2
+R6(config-router)#
+R6#
+*Mar  1 01:05:25.323: %SYS-5-CONFIG_I: Configured from console by console
+R6#
+*Mar  1 01:08:36.799: %OSPF-5-ADJCHG: Process 88, Nbr 10.2.80.1 on FastEthernet0/1 from LOADING to FULL, Loading Done
+R6#conf t
+Enter configuration commands, one per line.  End with CNTL/Z.
+R6(config)#int f0/0
+R6(config-if)#shutdown
+R6(config-if)#
+*Mar  1 01:47:21.639: %OSPF-5-ADJCHG: Process 88, Nbr 10.0.20.1 on FastEthernet0/0 from FULL to DOWN, Neighbor Down: Interface down or detached
+*Mar  1 01:47:21.639: %OSPF-5-ADJCHG: Process 88, Nbr 10.0.30.1 on FastEthernet0/0 from FULL to DOWN, Neighbor Down: Interface down or detached
+*Mar  1 01:47:21.643: %OSPF-5-ADJCHG: Process 88, Nbr 10.0.40.1 on FastEthernet0/0 from EXSTART to DOWN, Neighbor Down: Interface down or detached
+R6(config-if)#
+*Mar  1 01:47:23.635: %LINK-5-CHANGED: Interface FastEthernet0/0, changed state to administratively down
+*Mar  1 01:47:24.635: %LINEPROTO-5-UPDOWN: Line protocol on Interface FastEthernet0/0, changed state to down
+R6(config-if)#no shut
+R6(config-if)#
+*Mar  1 01:48:45.787: %LINK-3-UPDOWN: Interface FastEthernet0/0, changed state to up
+*Mar  1 01:48:46.787: %LINEPROTO-5-UPDOWN: Line protocol on Interface FastEthernet0/0, changed state to up
+R6(config-if)#
+*Mar  1 01:48:52.387: %OSPF-5-ADJCHG: Process 88, Nbr 10.0.30.1 on FastEthernet0/0 from LOADING to FULL, Loading Done
+*Mar  1 01:48:52.559: %OSPF-5-ADJCHG: Process 88, Nbr 10.0.20.1 on FastEthernet0/0 from LOADING to FULL, Loading Done
+R6(config-if)#^Z
+R6#
+*Mar  1 02:06:29.439: %SYS-5-CONFIG_I: Configured from console by console
+R6#show run
+Building configuration...
+
+Current configuration : 1384 bytes
+!
+version 12.3
+service timestamps debug datetime msec
+service timestamps log datetime msec
+no service password-encryption
+!
+hostname R6
+!
+boot-start-marker
+boot-end-marker
+!
+!
+no aaa new-model
+ip subnet-zero
+no ip icmp rate-limit unreachable
+ip tcp synwait-time 5
+!
+!
+no ip domain lookup
+!
+ip cef
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+interface Loopback0
+ ip address 10.0.60.1 255.255.255.252
+!
+interface FastEthernet0/0
+ ip address 10.0.123.251 255.255.255.248
+ duplex auto
+ speed auto
+!
+interface Serial0/0
+ no ip address
+ shutdown
+ clockrate 2000000
+!
+interface FastEthernet0/1
+ ip address 10.2.0.1 255.255.255.0
+ duplex auto
+ speed auto
+!
+interface Serial0/1
+ no ip address
+ shutdown
+ clockrate 2000000
+!
+interface Serial0/2
+ no ip address
+ shutdown
+ clockrate 2000000
+!
+interface Serial0/3
+ no ip address
+ shutdown
+ clockrate 2000000
+!
+interface FastEthernet1/0
+ no ip address
+ shutdown
+ duplex auto
+ speed auto
+!
+interface FastEthernet2/0
+ no ip address
+ shutdown
+ duplex auto
+ speed auto
+!
+router ospf 88
+ log-adjacency-changes
+ network 10.0.0.0 0.0.255.255 area 0
+ network 10.2.0.0 0.0.255.255 area 2
+!
+no ip http server
+no ip http secure-server
+ip classless
+!
+!
+no cdp log mismatch duplex
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+line con 0
+ exec-timeout 0 0
+ privilege level 15
+ logging synchronous
+line aux 0
+ exec-timeout 0 0
+ privilege level 15
+ logging synchronous
+line vty 0 4
+ login
+!
+end
